@@ -8,6 +8,8 @@ import ButtonRegis from "../components/ButtonRegis";
 function MovieDetails() {
   const { id } = useParams();
   const [detailMovie, setdetailMovie] = useState([]);
+
+  // Genre
   const [movieGenre, setmovieGenre] = useState([]);
   const [genre, setGenre] = useState([]);
 
@@ -17,6 +19,7 @@ function MovieDetails() {
     });
   }, []);
 
+  // Genre
   useEffect(() => {
     setGenre(getMovieGenre());
     console.log(genre);
@@ -48,7 +51,7 @@ function MovieDetails() {
   // };
 
   const MovieDetail = () => {
-    return detailMovie.map((movie, i) => {
+    return detailMovie.map((movie) => {
       if (movie.id === parseInt(id)) {
         return (
           <div
@@ -91,23 +94,41 @@ function MovieDetails() {
                   <h1 style={{ color: "white", fontSize: "70px" }}>
                     {movie.title}
                   </h1>
-                  <h6>{movie.genre_ids}</h6>
                   <h6
                     style={{
                       color: "white",
-                      fontSize: "18px",
+                      fontSize: "20px",
+                      paddingTop: "1.5vw",
+                    }}
+                  >
+                    {movie.genre_ids}
+                  </h6>
+                  <h6
+                    style={{
+                      color: "white",
+                      fontSize: "25px",
                       paddingTop: "1.5vw",
                     }}
                   >
                     {movie.overview}
                   </h6>
-                  <p>{movie.vote_average}</p>
+                  <p
+                    style={{
+                      color: "white",
+                      fontSize: "20px",
+                      paddingTop: "1.5vw",
+                    }}
+                  >
+                    {movie.vote_average} / 10
+                  </p>
                   <button className="button-trailer">WATCH TRAILER</button>
                 </Col>
               </Row>
               <Row className="p-4">
                 <Col>
-                  <Link to={"/"}>Back to Home</Link>
+                  <Link to={"/"} className="link-url">
+                    Back to Home
+                  </Link>
                 </Col>
               </Row>
             </Container>

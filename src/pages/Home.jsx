@@ -1,12 +1,12 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/Home.css";
+import "../styles/Style.css";
 import "../styles/button.css";
 import ButtonLogin from "../components/ButtonLogin";
 import ButtonRegis from "../components/ButtonRegis";
 // import SearchHome from "../components/SearchHome";
-import backgroundImage from "../styles/image2.jpg";
+import backgroundImage from "../styles/image.jpg";
 import { useEffect, useState } from "react";
 import { getMovieList, searchMovie } from "../api";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ const Home = () => {
       return (
         <div
           className="Movie-wrapper"
-          key={i}
+          key={movie.id}
           onClick={() => {
             nav(`/detail/${movie.id}`);
           }}
@@ -41,7 +41,7 @@ const Home = () => {
           <img
             className="Movie-image"
             src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}
-            alt={i}
+            alt={movie.id}
           />
         </div>
       );
@@ -109,7 +109,7 @@ const Home = () => {
         </Container>
       </div>
 
-      <Container>
+      <Container className="mb-4">
         <Row>
           <div className="App">
             <header className="App-header">

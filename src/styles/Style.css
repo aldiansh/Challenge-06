@@ -63,3 +63,13 @@
   font-size: 1.2em;
   text-decoration: underline;
 }
+
+.link-url {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.link-url:hover {
+  color: red;
+}
