@@ -8,7 +8,7 @@ import ButtonRegis from "../components/ButtonRegis";
 // import SearchHome from "../components/SearchHome";
 import backgroundImage from "../styles/image.jpg";
 import { useEffect, useState } from "react";
-import { getMovieList, searchMovie } from "../api";
+import { getMoviePopularList, searchMovie } from "../api";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
 
   useEffect(() => {
-    getMovieList().then((result) => {
+    getMoviePopularList().then((result) => {
       setPopularMovies(result);
     });
   }, []);

@@ -3,7 +3,8 @@ import axios from "axios";
 const apiKey = process.env.REACT_APP_APIKEY;
 const baseUrl = process.env.REACT_APP_BASEURL;
 
-export const getMovieList = async () => {
+// Popular
+export const getMoviePopularList = async () => {
   const movie = await axios.get(
     `${baseUrl}/movie/popular?page=1&api_key=${apiKey}`
   );
@@ -11,12 +12,12 @@ export const getMovieList = async () => {
   return movie.data.results;
 };
 
-export const getMovieGenre = async () => {
-  const genre = await axios.get(
-    `${baseUrl}/genre/movie/list?page=1&api_key=${apiKey}`
+// All Movie
+export const getAllMovieDetail = async (id) => {
+  const detail = await axios.get(
+    `${baseUrl}/movie/${id}?api_key=${apiKey}&language=en-US`
   );
-  console.log(genre.data.genres);
-  return genre.data.genres;
+  return detail.data;
 };
 
 export const searchMovie = async (q) => {
