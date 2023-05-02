@@ -16,7 +16,7 @@ function Header() {
   }, []);
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
           Auth App
@@ -28,6 +28,7 @@ function Header() {
               Home
             </Nav.Link>
           </Nav>
+
           <Nav>
             {isLoggedIn ? (
               <>
