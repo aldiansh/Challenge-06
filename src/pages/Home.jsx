@@ -89,15 +89,16 @@ const Home = () => {
                 onChange={({ target }) => search(target.value)}
               />
             </Col>
-            <Col className="mt-3">
+            <Col className="mt-3 d-flex align-items-start justify-content-end">
               {isLoggedIn ? (
                 <>
                   <div
                     onClick={() => {
                       nav(`/users/dashboard`);
                     }}
+                    className="button-dashboard"
                   >
-                    dasboard
+                    Dasboard
                   </div>
                   <div
                     onClick={() => {
@@ -105,6 +106,7 @@ const Home = () => {
                       setIsLoggedIn(false);
                       return nav("/");
                     }}
+                    className="button-logout"
                   >
                     Logout
                   </div>
