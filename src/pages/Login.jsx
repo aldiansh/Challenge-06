@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import GoogleLogin from "../components/GoogleLogin";
 
 const API = process.env.REACT_APP_API;
 function Login() {
@@ -24,7 +25,7 @@ function Login() {
 
       let config = {
         method: "post",
-        url: `${process.env.REACT_APP_API}/v1/auth/login`,
+        url: `https://km4-challenge-5-api.up.railway.app/api/v1/auth/login`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -77,6 +78,17 @@ function Login() {
         <Button variant="primary" type="submit">
           Submit
         </Button>
+
+        <Row>
+          <Col>
+            <h4 className="text-center">Or</h4>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="text-center">
+            <GoogleLogin buttonText="Login with Google 🚀" />
+          </Col>
+        </Row>
       </Form>
     </Container>
   );
