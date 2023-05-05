@@ -48,6 +48,8 @@ const Home = () => {
       );
     });
   };
+
+  // Login & Register
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {

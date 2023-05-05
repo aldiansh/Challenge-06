@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 
-function GoogleLogin() {
+function GoogleLogin({ buttonText }) {
   const registerLoginWithGoogleAction = async (accessToken) => {
     try {
       let data = JSON.stringify({
@@ -26,7 +26,7 @@ function GoogleLogin() {
 
       localStorage.setItem("token", token);
 
-      // navigate("/");
+      //   navigate("/");
 
       // Temporary solution
       window.location.href = "/";
@@ -38,6 +38,17 @@ function GoogleLogin() {
       toast.error(error.message);
     }
   };
+
+  const loginWithGoogle = useGoogleLogin({
+    onSuccess: (responseGoogle) =>
+      registerLoginWithGoogleAction(responseGoogle.access_token),
+  });
+
+  return (
+    <Button variant="primary" onClick={() => loginWithGoogle()}>
+      {buttonText}
+    </Button>
+  );
 }
 
 export default GoogleLogin;
